@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useRef, useState } from "react";
-// import { LogoGithub, LogoGoogle } from "react-ionicons";
+import { LogoGithub, LogoGoogle } from "react-ionicons";
 import { Link, useNavigate } from "react-router-dom";
 import { setIsAuthenticated, setAuthUser } from "../store/authSlice";
 import { useAppDispatch } from "../store/hooks";
@@ -144,11 +144,11 @@ export const SignInForm: React.FC = () => {
           <div className="bar"></div>
         </div>
         <div className="flex justify-center my-5 gap-1 cursor-pointer" onClick={() => handleLoginSocial("github")}>
-          {/* <LogoGithub color={"#010001"} height="20px" width="20px" /> */}
+          <LogoGithub color={"#010001"} height="20px" width="20px" />
           <span className="text-[#010001] relative font-medium text-[14px]">Log in with Github</span>
         </div>
         <div className="flex justify-center my-5 gap-1 cursor-pointer" onClick={() => handleLoginSocial("google")}>
-          {/* <LogoGoogle color={"#e34832"} height="20px" width="20px" /> */}
+          <LogoGoogle color={"#e34832"} height="20px" width="20px" />
           <span className="text-[#e34832] relative font-medium text-[14px]">Log in with Google</span>
         </div>
         <Link to={"/"} className={"text-center block text-[12px] text-[#00376b]"}>
