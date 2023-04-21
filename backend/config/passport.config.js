@@ -92,20 +92,20 @@ passport.use(
         },
         function (accessToken, refreshToken, profile, done) {
             const { id, displayName, emails, photos, username } = profile;
-
             User.findOne(
                 {
                     githubId: id,
                 },
                 (err, val) => {
                     if (val) return done(null, val);
-
                     if (!val || err)
                         User.findOrCreate(
                             {
                                 githubId: id,
                                 fullname: displayName,
-                                email: emails[0].value,
+                                email: emails
+                                    ? emails[0].value
+                                    : 'kien11000@gmail.com',
                                 username: username,
                                 avatar: photos[0].value,
                                 password: username,

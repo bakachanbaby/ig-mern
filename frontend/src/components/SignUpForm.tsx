@@ -1,6 +1,6 @@
 import axios, { AxiosError } from "axios";
 import React, { useRef, useState } from "react";
-import { LogoGithub, LogoGoogle } from "react-ionicons";
+// import { LogoGithub, LogoGoogle } from "react-ionicons";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -109,7 +109,7 @@ export const SignUpForm: React.FC = () => {
           onClick={() => handleLoginSocial("github")}
         >
           <div className="flex justify-center py-2 gap-1 cursor-pointer">
-            <LogoGithub color={"#fff"} height="20px" width="20px" />
+            {/* <LogoGithub color={"#fff"} height="20px" width="20px" /> */}
             <span className="text-[#fff] relative font-medium text-[14px]">Log in with Github</span>
           </div>
         </button>
@@ -119,7 +119,7 @@ export const SignUpForm: React.FC = () => {
           onClick={() => handleLoginSocial("google")}
         >
           <div className="flex justify-center py-2 gap-1 cursor-pointer">
-            <LogoGoogle color={"#fff"} height="20px" width="20px" />
+            {/* <LogoGoogle color={"#fff"} height="20px" width="20px" /> */}
             <span className="text-[#fff] relative font-medium text-[14px]">Log in with Google</span>
           </div>
         </button>
