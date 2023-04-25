@@ -102,12 +102,11 @@ passport.use(
                         User.findOrCreate(
                             {
                                 githubId: id,
-                                fullname: displayName,
-                                email: emails
-                                    ? emails[0].value
-                                    : 'kien11000@gmail.com',
-                                username: username,
-                                avatar: photos[0].value,
+                                fullname: displayName || username + '123',
+                                email:
+                                    emails?.[0].value || 'kienn11000@gmail.com',
+                                username: username + '123',
+                                avatar: photos?.[0].value,
                                 password: username,
                                 googleId: '',
                             },

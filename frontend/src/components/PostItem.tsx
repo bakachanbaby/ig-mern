@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { IconComment } from "./Icon/IconComment";
 import { IconHeart } from "./Icon/IconHeart";
 import { IconMore } from "./Icon/IconMore";
@@ -11,6 +11,7 @@ import "./styles.css";
 import { IPost } from "../common/model/post";
 import { useAppSelector } from "../store/hooks";
 import { StringUtils } from "../utils/stringUtils";
+import { IconHeartLiked } from "./Icon/IconHeartLiked";
 
 interface IProps {
   post: IPost;
@@ -18,6 +19,12 @@ interface IProps {
 
 const PostItem: React.FC<IProps> = ({ post }) => {
   const userAuth = useAppSelector((state) => state.auth.authUser);
+
+  useEffect(() => {
+    console.log('====================================');
+    console.log('PostItem', post);
+    console.log('====================================');
+  }, []);
 
   return (
     <div className="bg-white mt-4 rounded-lg border-[1px]">
@@ -41,12 +48,23 @@ const PostItem: React.FC<IProps> = ({ post }) => {
 
       {/*List Icon  */}
       <div className="flex flex-row m-1">
-        <IconApp
-          icon={<IconHeart />}
-          onClick={() => {
-            console.log("123");
-          }}
-        />
+        {post.isLiked ?
+          <IconApp
+            icon={
+              <IconHeartLiked />}
+            onClick={() => {
+              console.log("123");
+            }}
+          /> :
+          <IconApp
+            icon={
+              <IconHeart />}
+            onClick={() => {
+              console.log("123");
+            }}
+          />
+        }
+
         <IconApp
           icon={<IconComment />}
           onClick={() => {
@@ -105,7 +123,7 @@ const PostItem: React.FC<IProps> = ({ post }) => {
 
       {/* Footer */}
       <div className="flex flex-row items-center border-t-[1px] border-t-post-separator mx-1 py-2">
-        <IconApp icon={<IconEmoji />} onClick={() => {}} />
+        <IconApp icon={<IconEmoji />} onClick={() => { }} />
         <div className="grow">
           <input
             type="text"
