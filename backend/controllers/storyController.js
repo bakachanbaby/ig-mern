@@ -10,6 +10,7 @@ const StoryHighlight = require('../models/storyHighlightModel');
 
 const multerStorage = multer.memoryStorage();
 
+// Multer Filter
 const multerFilter = (req, file, cb) => {
     if (file.mimetype.startsWith('image')) {
         cb(null, true);
