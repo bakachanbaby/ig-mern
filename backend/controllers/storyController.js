@@ -250,11 +250,12 @@ exports.createAHighlight = async (req, res) => {
 };
 
 exports.getAllStoryHighLight = async (req, res) => {
+    console.log(123);
     try {
         const { _id } = req.user;
         const highlights = await StoryHighlight.find({
             user: _id,
-            active: true,
+            // active: true,
         })
             .populate('cover', 'image')
             .select('title cover');
